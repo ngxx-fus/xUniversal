@@ -16,10 +16,10 @@ A lightweight, modular C Shared Library designed to streamline low-level develop
     │   │   ├── xUniversalLoop.h
     │   │   └── xUniversalReturn.h
     │   └── lib
-    │       └── libxuniversal.so
+    │       └── libxuniversal.so    <------------------- Shared lib 
     ├── Makefile
     ├── TestLib
-    ├── TestLib.c
+    ├── TestLib.c  <---------------------------------- Test program (written in C)  
     ├── readme.md
     ├── xUniversal.c
     ├── xUniversal.h
