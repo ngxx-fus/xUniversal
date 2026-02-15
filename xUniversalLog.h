@@ -17,7 +17,7 @@ extern "C" {
     #define XLOG_EN                     1
 #endif
 #ifndef XLOG_LEVEL
-    #define XLOG_LEVEL                  1 /*MIN:Lv0 to MAX:Lv2*/
+    #define XLOG_LEVEL                  0 /*MIN:Lv0 to MAX:Lv2*/
 #endif
 
 extern pthread_mutex_t  logMutex;   /*Mutex lock for logging lock*/
@@ -28,7 +28,7 @@ void xCoreLog(const char* tag, const char* format, ...)
      __attribute__((format(printf, 2, 3)));
 
 /// Always on
-#define xError(...)	    xcorelog("error",   __va_args__)
+#define xError(...)	    xCoreLog("error",   __VA_ARGS__)
 #define xWarn(...)	    xCoreLog("WARN",    __VA_ARGS__)
 
 #if (XLOG_LEVEL >= 0) && (XLOG_EN == 1)
