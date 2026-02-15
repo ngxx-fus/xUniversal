@@ -9,7 +9,7 @@ SRC         = xUniversal.c
 OBJ         = $(SRC:.c=.o)
 
 # Installation paths
-INSTALL_DIR = $(HOME)/.fus/xUniversal/Build
+INSTALL_DIR = ./Build
 INCLUDE_DIR = $(INSTALL_DIR)/include
 LIB_DIR     = $(INSTALL_DIR)/lib
 
@@ -20,7 +20,7 @@ TEST_BIN    = TestLib
 .PHONY: all clean install test
 
 ### @brief Default target: build the shared library
-all: $(TARGET)
+all: $(TARGET) install
 
 $(TARGET): $(OBJ)
 	$(CC) $(LDFLAGS) -o $@ $^
@@ -53,4 +53,5 @@ test: install
 
 ### @brief Remove local objects and the test binary
 clean:
-	rm -f $(OBJ) $(TARGET) $(TEST_BIN)
+	rm -vrf $(OBJ) $(TARGET) $(TEST_BIN)
+	rm -vrf $(INSTALL_DIR)
